@@ -5,6 +5,7 @@ ruby "3.1.3"
 
 gem "bootsnap", require: false
 gem "cssbundling-rails"
+gem 'devise', '~> 4.8', '>= 4.8.1'
 gem "jbuilder"
 gem "jsbundling-rails"
 gem "pg", "~> 1.1"
