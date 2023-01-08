@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :tweets, only: :create
-
+  resources :usernames, only: [:new, :update]
   get :dashboard, to: "dashboard#index"
+
 end
