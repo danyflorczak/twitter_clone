@@ -1,0 +1,149 @@
+require:
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.1.2
+  NewCops: disable
+  Exclude:
+  - 'config/**/*'
+  - 'bin/*'
+  - 'config.ru'
+  - 'Rakefile'
+  - 'db/migrate'
+  - 'vendor/**/*'
+  - 'node_modules/**/*'
+
+#Bundler
+
+Bundler/OrderedGems:
+  Enabled: false
+
+#Documentation
+
+Documentation:
+  Enabled: false
+
+#Layout
+
+Layout/LineLength:
+  Exclude:
+  - spec/**/*.rb
+  - lib/**/*
+
+Layout/EmptyLinesAroundAccessModifier:
+  EnforcedStyle: around 
+
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: aligned
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: indent
+
+Layout/IndentationConsistency:
+  EnforcedStyle: normal
+
+Layout/ArrayAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/CaseIndentation:
+  EnforcedStyle: end
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+#Lint
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+#Metrics
+
+Metrics/BlockLength:
+  Exclude:
+  - spec/**/*.rb
+  - db/seeds.rb
+  - db/schema.rb
+  - lib/**/*
+
+Metrics/ModuleLength:
+  Exclude:
+  - spec/**/*.rb
+  - lib/**/*
+
+Metrics/ClassLength:
+  Exclude:
+  - spec/**/*.rb
+  - lib/**/*
+
+#Performance
+
+Performance/OpenStruct:
+  Enabled: false
+
+#Style
+
+Style/MethodCallWithArgsParentheses:
+  EnforcedStyle: require_parentheses
+
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: line_count_dependent
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '()'
+    '%w': '()'
+    '%W': '()'
+
+Style/WordArray:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false

@@ -28,6 +28,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "rubocop", "~> 1.36", require: false
+  gem "rubocop-performance", require: false
   gem "web-console"
 end
 
