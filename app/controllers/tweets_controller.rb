@@ -3,11 +3,14 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
   def create
-    tweet = Tweet.new(tweets_params.merge(user: current_user))
+    @tweet = Tweet.new(tweets_params.merge(user: current_user))
 
-    return unless tweet.save
-
-    redirect_to dashboard_path
+    if @tweet.save
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+        format.turbo_stream
+      end
+    end
   end
 
   private
