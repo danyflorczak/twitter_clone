@@ -5,11 +5,11 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweets_params.merge(user: current_user))
 
-    if @tweet.save
-      respond_to do |format|
-        format.html { redirect_to dashboard_path }
-        format.turbo_stream
-      end
+    return unless @tweet.save
+
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.turbo_stream
     end
   end
 
