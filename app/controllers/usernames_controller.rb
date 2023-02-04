@@ -19,7 +19,7 @@ class UsernamesController < ApplicationController
   private
 
   def username_params
-    params.require(:user).permit(:username, :username_params, :avatar)
+    params.require(:user).permit(:username, :display_name, :avatar)
   end
 
   def invalid_username?
