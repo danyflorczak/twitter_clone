@@ -8,6 +8,7 @@ AllCops:
   Exclude:
   - 'config/**/*'
   - 'bin/*'
+  - 'db/migrate/*'
   - 'config.ru'
   - 'Rakefile'
   - 'db/migrate'
