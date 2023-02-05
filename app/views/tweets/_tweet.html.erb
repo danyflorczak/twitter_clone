@@ -1,13 +1,13 @@
 <%= turbo_frame_tag dom_id(tweet_presenter.tweet) do%>
   <div class="tweet d-flex py-3 px-3">
     <div class="flex-shrink-0">
-      <%= image_tag tweet_presenter.user.avatar, size: "48x48", class: "rounded-circle" %>
+      <%= image_tag tweet_presenter.avatar, size: "48x48", class: "rounded-circle" %>
     </div>
     <div class="flex-grow-1 ms-3">
       <p class="mb-0">
-        <span class="fw-bolder"><%= tweet_presenter.user.display_name  %></span>
+        <span class="fw-bolder"><%= tweet_presenter.display_name  %></span>
         <span class="text-secondary">
-        @<%= tweet_presenter.user.username  %> · <%= tweet_presenter.created_at %></span>
+        @<%= tweet_presenter.username  %> · <%= tweet_presenter.created_at %></span>
       </p>
       <p class="mb-0"><%= tweet_presenter.body  %></p>
     </div>

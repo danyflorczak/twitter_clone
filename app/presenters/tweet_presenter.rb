@@ -1,13 +1,16 @@
+# frozen_string_literal: true
+
 class TweetPresenter
   include ActionView::Helpers::DateHelper
 
   def initialize(tweet)
-    @tweet= tweet
+    @tweet = tweet
   end
 
   attr_reader :tweet
 
   delegate :user, :body, to: :tweet
+  delegate :display_name, :username, :avatar, to: :user
 
   def created_at
     if (Time.zone.now - tweet.created_at) > 1.day
