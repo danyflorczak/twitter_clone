@@ -1,11 +1,9 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   before_action :authenticate_user!
 
-  def create
+  def create; end
 
-  end
-
-  def destroy
-
-  end
-end 
+  def destroy; end
+end
