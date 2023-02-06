@@ -14,7 +14,14 @@ class LikesController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @like = tweet.likes.find(params[:id])
+    @like.destroy
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.turbo_stream
+    end
+  end
 
   private
 
