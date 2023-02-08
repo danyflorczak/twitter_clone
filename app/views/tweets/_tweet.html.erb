@@ -25,8 +25,8 @@
           <% end %>
         </div>
         <div>
-          <% if tweet_presenter.likes.include?(current_user.likes.find_by(tweet: tweet_presenter.tweet)) %>
-            <%= link_to tweet_like_path(tweet_presenter.tweet, tweet_presenter.tweet.likes.find_by(user: current_user)), data: { "turbo-method": "delete" }, class: "text-decoration-none text-black likes" do %>
+          <% if current_user.liked_tweets.include?(tweet_presenter.tweet) %>
+            <%= link_to tweet_like_path(tweet_presenter.tweet, current_user.liked_tweets.find_by(id: tweet_presenter.tweet.id)), data: { "turbo-method": "delete" }, class: "text-decoration-none text-black likes" do %>
               <%= image_tag "heart-filled.png", size: "19x19", class: "me-2" %>
               <span><%= tweet_presenter.likes_count %></span>
             <% end %>
