@@ -4,13 +4,13 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    current_user.likes.create(tweet: tweet)
+    current_user.likes.create(tweet:)
 
-    if @tweet.save
-      respond_to do |format|
-        format.html { redirect_to dashboard_path }
-        format.turbo_stream
-      end
+    return unless @tweet.save
+
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.turbo_stream
     end
   end
 
@@ -27,5 +27,5 @@ class LikesController < ApplicationController
 
   def tweet
     @tweet ||= Tweet.find(params[:tweet_id])
-  end 
+  end
 end

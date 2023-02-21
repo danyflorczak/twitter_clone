@@ -18,8 +18,8 @@ RSpec.describe "Tweets", type: :request do
   end
   describe "DElETE destroy" do
     it "deletes new like" do
-      like = create(:like, user: user, tweet: tweet)
-      expect do 
+      like = create(:like, user:, tweet:)
+      expect do
         delete tweet_like_path(tweet, like)
       end.to change { Like.count }.by(-1)
       expect(response).to have_http_status(:redirect)
