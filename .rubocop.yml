@@ -9,122 +9,62 @@ AllCops:
   - 'config/**/*'
   - 'bin/*'
   - 'db/migrate/*'
+  - 'db/schema.rb'
   - 'config.ru'
   - 'Rakefile'
   - 'db/migrate'
   - 'vendor/**/*'
   - 'node_modules/**/*'
 
-
-#Bundler
-
-Bundler/OrderedGems:
+Style/Documentation:
   Enabled: false
 
-#Documentation
-
-Documentation:
+Migration/DepartmentName:
   Enabled: false
 
-#Layout
+Style/MultilineBlockChain:
+  Enabled: false
 
-Layout/LineLength:
-  Exclude:
-  - spec/**/*.rb
-  - lib/**/*
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
 
-Layout/EmptyLinesAroundAccessModifier:
-  EnforcedStyle: around 
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/Next:
+  Enabled: false
 
 Layout/EmptyLineBetweenDefs:
   AllowAdjacentOneLineDefs: true
 
 Layout/MultilineOperationIndentation:
-  EnforcedStyle: aligned
-
-Layout/AccessModifierIndentation:
-  EnforcedStyle: indent
-
-Layout/IndentationConsistency:
-  EnforcedStyle: normal
-
-Layout/ArrayAlignment:
-  EnforcedStyle: with_fixed_indentation
-
-Layout/FirstArrayElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/FirstHashElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/ParameterAlignment:
-  EnforcedStyle: with_fixed_indentation
-
-Layout/CaseIndentation:
-  EnforcedStyle: end
-
-Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Layout/ArgumentAlignment:
-  EnforcedStyle: with_fixed_indentation
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
 
-Layout/EndAlignment:
-  EnforcedStyleAlignWith: variable
-
-#Lint
-
-Lint/AssignmentInCondition:
+Layout/EmptyLineAfterGuardClause:
   Enabled: false
-
-#Metrics
-
-Metrics/BlockLength:
-  Exclude:
-  - spec/**/*.rb
-  - db/seeds.rb
-  - db/schema.rb
-  - lib/**/*
-
-Metrics/ModuleLength:
-  Exclude:
-  - spec/**/*.rb
-  - lib/**/*
-
-Metrics/ClassLength:
-  Exclude:
-  - spec/**/*.rb
-  - lib/**/*
-
-#Performance
-
-Performance/OpenStruct:
-  Enabled: false
-
-#Style
-
-Style/MethodCallWithArgsParentheses:
-  EnforcedStyle: require_parentheses
-
-Style/BarePercentLiterals:
-  EnforcedStyle: percent_q
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/StringLiteralsInInterpolation:
-  EnforcedStyle: single_quotes
+  EnforcedStyle: double_quotes
 
 Style/TrailingCommaInArguments:
-  EnforcedStyleForMultiline: consistent_comma
-
-Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: consistent_comma
+  EnforcedStyleForMultiline: comma
 
 Style/TrailingCommaInArrayLiteral:
-  EnforcedStyleForMultiline: consistent_comma
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
 
 Style/DoubleNegation:
+  Enabled: false
+
+Style/EmptyMethod:
   Enabled: false
 
 Style/SingleLineBlockParams:
@@ -134,9 +74,41 @@ Style/ParallelAssignment:
   Enabled: false
 
 Style/Lambda:
-  EnforcedStyle: line_count_dependent
+  Enabled: false
 
 Style/SafeNavigation:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Naming/BinaryOperatorParameterName:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+  - 'spec/requests/*'
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/ModuleLength:
+  Max: 150
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Lint/AssignmentInCondition:
   Enabled: false
 
 Style/PercentLiteralDelimiters:
@@ -144,9 +116,3 @@ Style/PercentLiteralDelimiters:
     '%i': '()'
     '%w': '()'
     '%W': '()'
-
-Style/WordArray:
-  Enabled: false
-
-Style/MultilineBlockChain:
-  Enabled: false
