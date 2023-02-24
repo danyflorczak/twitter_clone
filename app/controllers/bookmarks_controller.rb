@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class LikesController < ApplicationController
+class BookmarksController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @like = current_user.likes.create(tweet:)
+    @bookmark = current_user.bookmarks.create(tweet:)
 
     return unless @tweet.save
 
@@ -15,8 +15,8 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = tweet.likes.find(params[:id])
-    @like.destroy
+    @bookmark = tweet.bookmarks.find(params[:id])
+    @bookmark.destroy
     respond_to do |format|
       format.html { redirect_to dashboard_path }
       format.turbo_stream
