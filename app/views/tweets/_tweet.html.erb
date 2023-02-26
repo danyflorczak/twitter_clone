@@ -21,13 +21,13 @@
         <div>
           <%= link_to tweet_presenter.retweet_tweet_url, data: { "turbo-method": tweet_presenter.turbo_retweet_data_method }, class: "text-decoration-none text-black retweet" do %>
             <%= image_tag tweet_presenter.retweet_image, size: "19x19", class: "me-2" %>
-            <span><%= tweet_presenter.likes_count %></span>
+            <span><%= tweet_presenter.retweets_count %></span>
           <% end %>
         </div>
         <div>
           <%= link_to tweet_presenter.like_tweet_url, data: { "turbo-method": tweet_presenter.turbo_like_data_method }, class: "text-decoration-none text-black likes" do %>
             <%= image_tag tweet_presenter.like_heart_image, size: "19x19", class: "me-2" %>
-            <span><%= tweet_presenter.tweet.retweets.size %></span>
+            <span><%= tweet_presenter.likes_count %></span>
           <% end %>
         </div>
         <div>

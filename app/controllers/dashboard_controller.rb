@@ -4,7 +4,8 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tweets = Tweet.includes(:liked_users, :bookmarked_users, :retweeted_users, :user).order(created_at: :desc).map do |tweet|
+    @tweets = Tweet.includes(:liked_users, :bookmarked_users, :retweeted_users,
+                             :user).order(created_at: :desc).map do |tweet|
       TweetPresenter.new(tweet:, current_user:)
     end
   end
