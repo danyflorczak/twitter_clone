@@ -78,6 +78,30 @@ class TweetPresenter
     end
   end
 
+  def retweet_tweet_url
+    if tweet_retweeted_by_current_user?
+      tweet_retweet_path(tweet, current_user.retweets.find_by(tweet:))
+    else
+      tweet_retweets_path(tweet)
+    end
+  end
+
+  def turbo_retweet_data_method
+    if tweet_retweeted_by_current_user?
+      "delete"
+    else
+      "post"
+    end
+  end
+
+  def retweet_image
+    if tweet_retweeted_by_current_user?
+      "retweet-filled.png"
+    else
+      "retweet-unfilled.png"
+    end
+  end
+
   private
 
   def tweet_liked_by_current_user
@@ -89,4 +113,9 @@ class TweetPresenter
     @tweet_bookmarked_by_current_user ||= tweet.bookmarked_users.include?(current_user)
   end
   alias tweet_bookmarked_by_current_user? tweet_bookmarked_by_current_user
+
+  def tweet_retweeted_by_current_user
+    @tweet_retweeted_by_current_user ||= tweet.retweeted_users.include?(current_user)
+  end
+  alias tweet_retweeted_by_current_user? tweet_retweeted_by_current_user
 end
