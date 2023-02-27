@@ -3,6 +3,16 @@
 require "rails_helper"
 
 RSpec.describe "Tweets", type: :request do
+  describe "GET show" do
+    it "have success http status" do
+      tweet = create(:tweet)
+      user = create(:user)
+      sign_in user
+      get tweet_path(tweet)
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "POST create" do
     context "when signed in" do
       it "is create a new tweet" do
