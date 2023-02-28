@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-import { Turbo } from "@hotwired/turbo-rails";
 
 // Connects to data-controller="tweet-card"
 export default class extends Controller {
