@@ -11,6 +11,8 @@ RSpec.describe User, type: :model do
   it { should have_many(:bookmarked_tweets).through(:bookmarks).source(:tweet) }
   it { should have_many(:retweets).dependent(:destroy) }
   it { should have_many(:retweeted_tweets).through(:retweets).source(:tweet) }
+  it { should have_many(:views) }
+  it { should have_many(:viewd_tweets).through(:views) }
 
   describe "#set_display_name" do
     context "when display_name is set" do
