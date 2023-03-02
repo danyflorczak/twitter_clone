@@ -33,7 +33,7 @@
         <div>
           <%= link_to "#", data: { "ignore-click": true }, class: "text-decoration-none text-black views" do %>
             <%= image_tag "bar-chart.png", size: "19x19", class: "me-2" %>
-            <span>Views</span>
+            <span><%= tweet_presenter.views_count %></span>
           <% end %>
         </div>
         <div>
