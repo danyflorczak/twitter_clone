@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
 
   def show
     ViewTweetJob.perform_async(tweet.id, current_user.id)
-    @tweet_presenter = TweetPresenter.new(tweet: tweet, current_user:)
+    @tweet_presenter = TweetPresenter.new(tweet:, current_user:)
   end
 
   def create

@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 RSpec.describe ViewTweetJob, type: :job do
   let(:user) { create(:user) }
   let(:tweet) { create(:tweet) }
@@ -12,7 +14,7 @@ RSpec.describe ViewTweetJob, type: :job do
   end
 
   it "does not increment the view count if the tweet already has been viewd" do
-    create(:view, user: user, tweet: tweet)
+    create(:view, user:, tweet:)
     expect { subject }.not_to change { View.count }
   end
 end

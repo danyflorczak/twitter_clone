@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ViewTweetJob
   include Sidekiq::Job
 
@@ -5,12 +7,12 @@ class ViewTweetJob
     tweet = Tweet.find(tweet_id)
     user = User.find(user_id)
 
-    View.create(tweet: tweet, user: user) unless tweet_viewed?(tweet: tweet, user: user)
+    View.create(tweet:, user:) unless tweet_viewed?(tweet:, user:)
   end
 
   private
 
   def tweet_viewed?(tweet:, user:)
-    View.exists?(user: user, tweet: tweet)
+    View.exists?(user:, tweet:)
   end
 end
