@@ -7,7 +7,7 @@
 
     <div class="tweet d-flex py-3 px-3">
       <div class="flex-shrink-0">
-        <%= image_tag @tweet_presenter.avatar, size: "48x48", class: "rounded-circl e" %>
+        <%= image_tag @tweet_presenter.avatar, size: "48x48", class: "rounded-circle" %>
       </div>
       <div class="flex-grow-1 ms-3">
         <p class="fw-bolder mb-0"><%= @tweet_presenter.display_name  %></p>
@@ -20,6 +20,10 @@
     </div>
   </div>
   <%= render "shared/tweet_form", form_submit_path: tweet_reply_tweets_path(@tweet_presenter.tweet), button_label: "Reply", tweet_placeholder: "Tweet your reply" %>
+
+  <div id="reply_tweets">
+    <%= render partial: "tweets/tweet", collection: @reply_tweets_in_presenter, as: :tweet_presenter %>
+  </div>
 </div>
 <div class="col">
   Column
