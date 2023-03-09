@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :usernames, only: [:new, :update]
   get :dashboard, to: "dashboard#index"
   get :profile, to: "profile#show"
+  put :profile, to: "profile#update"
 
 end
