@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe "Followings", type: :request do
@@ -5,12 +7,12 @@ RSpec.describe "Followings", type: :request do
   let(:user_2) { create(:user) }
 
   before { sign_in user_1 }
-  
+
   describe "POST create" do
     it "create a new following" do
       expect do
         post user_followings_path(user_1), params: {
-          following_user_id: user_2.id
+          following_user_id: user_2.id,
         }
       end.to change { Following.count }.by(1)
       expect(response).to redirect_to user_path(user_2)
@@ -20,7 +22,7 @@ RSpec.describe "Followings", type: :request do
   describe "DELETE destroy" do
     it "deletes an existing following" do
       following = create(:following, user: user_1, following_user: user_2)
-      expect do 
+      expect do
         delete user_following_path(user_1, following)
       end.to change { Following.count }.by(-1)
       expect(response).to redirect_to user_path(user_2)
