@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+  get :dashboard, to: "dashboard#index"
+  get :profile, to: "profile#show"
+  put :profile, to: "profile#update"
 
   resources :tweets, only: [:show, :create] do
     resources :likes, only: [:create, :destroy]
@@ -12,8 +15,8 @@ Rails.application.routes.draw do
     resources :reply_tweets, only: :create
   end
   resources :usernames, only: [:new, :update]
-  get :dashboard, to: "dashboard#index"
-  get :profile, to: "profile#show"
-  put :profile, to: "profile#update"
+  resources :users, only: :show do
+    resources :followings, only: [:create, :destroy]
+  end
 
 end
