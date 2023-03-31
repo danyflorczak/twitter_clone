@@ -4,7 +4,8 @@ class FollowingsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    following = user.followings.create(following_params)
+    @user = User.find(params[:user_id])
+    following = @user.followings.create(following_params)
     @follower = following.following_user
     respond_to do |format|
       format.html { redirect_to user_path(following.following_user) }
@@ -13,8 +14,9 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    user
     following = Following.find(params[:id])
+    @user = following.user
+    @follower = following.following_user
     following.destroy
     respond_to do |format|
       format.html { redirect_to user_path(following.following_user) }
