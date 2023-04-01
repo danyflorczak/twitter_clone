@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
   root "home#index"
   get :dashboard, to: "dashboard#index"
   get :profile, to: "profile#show"
@@ -14,6 +11,7 @@ Rails.application.routes.draw do
     resources :retweets, only: [:create, :destroy]
     resources :reply_tweets, only: :create
   end
+  resources :bookmarks, only: :index
   resources :usernames, only: [:new, :update]
   resources :users, only: :show do
     resources :followings, only: [:create, :destroy]
