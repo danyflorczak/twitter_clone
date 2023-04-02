@@ -4,4 +4,7 @@ class HashtagsController < ApplicationController
   def index
     @hashtags = Hashtag.includes(:tweets)
   end
+
+  def show
+  end
 end
