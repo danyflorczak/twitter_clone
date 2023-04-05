@@ -1,11 +1,11 @@
-<div class="col-7">
+<div class="col-6">
   <div class="mb-3">
     <%= render "users/profile_section", user: @user %>
     <%= render "users/tweets_collection", tweet_presenters: @tweet_presenters %>
   </div>
 </div>
 <div class="col">
-  Column
+  <%= render "shared/hashtag_sidebar" %>
 </div>
 
 <% if controller_name == "profile" %>
