@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     resources :followings, only: [:create, :destroy]
   end
   resources :hashtags, only: [:show, :index], path: "/explore"
+  resources :message_threads, only: :index, path: "messages"
 end
