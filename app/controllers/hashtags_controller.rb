@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HashtagsController < ApplicationController
   before_action :authenticate_user!
 
@@ -8,7 +10,7 @@ class HashtagsController < ApplicationController
   def show
     @hashtag = Hashtag.find(params[:id])
     @tweet_presenters = @hashtag.tweets.order(created_at: :desc).map do |tweet|
-      TweetPresenter.new(tweet: tweet, current_user: current_user)
+      TweetPresenter.new(tweet:, current_user:)
     end
   end
 end

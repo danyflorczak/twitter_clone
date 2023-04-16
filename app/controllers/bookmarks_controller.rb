@@ -5,7 +5,7 @@ class BookmarksController < ApplicationController
 
   def index
     @tweet_presenter = current_user.bookmarked_tweets.map do |tweet|
-      TweetPresenter.new(tweet: tweet, current_user: current_user)
+      TweetPresenter.new(tweet:, current_user:)
     end
   end
 

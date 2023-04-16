@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe "Hashtags", type: :request do
@@ -11,7 +13,7 @@ RSpec.describe "Hashtags", type: :request do
     end
   end
 
-  describe "GET show" do 
+  describe "GET show" do
     it "succeeds" do
       hashtag = create(:hashtag)
       get hashtag_path(hashtag)

@@ -22,10 +22,10 @@ RSpec.describe Tweet, type: :model do
 
   describe "saving hashtags" do
     let(:user) { create(:user) }
-    context "when there are no matching hashtags in the body" do 
+    context "when there are no matching hashtags in the body" do
       it "does not create hashtag" do
         expect do
-          Tweet.create(user: user, body: "Example tweet body")
+          Tweet.create(user:, body: "Example tweet body")
         end.not_to change { Hashtag.count }
       end
     end
@@ -33,12 +33,12 @@ RSpec.describe Tweet, type: :model do
     context "when there are hashtags in the body" do
       it "creates hashtag" do
         expect do
-          Tweet.create(user: user, body: "Example tweet body with one #hashtag")
+          Tweet.create(user:, body: "Example tweet body with one #hashtag")
         end.to change { Hashtag.count }.by(1)
       end
 
       it "create hashtags assigned to the tweet" do
-        tweet = Tweet.create(user: user, body: "Example tweet body with #two #hashtags")
+        tweet = Tweet.create(user:, body: "Example tweet body with #two #hashtags")
         expect(tweet.hashtags.size).to eq(2)
       end
     end
@@ -47,7 +47,7 @@ RSpec.describe Tweet, type: :model do
       it "does not create hashtag if it is already in db" do
         Hashtag.create(tag: "hashtag")
         expect do
-          Tweet.create(user: user, body: "Example tweet body with one #hashtag")
+          Tweet.create(user:, body: "Example tweet body with one #hashtag")
         end.not_to change { Hashtag.count }
       end
     end

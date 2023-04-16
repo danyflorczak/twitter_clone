@@ -5,8 +5,8 @@ class ProfileController < ApplicationController
 
   def show
     @user = current_user
-    @tweet_presenters = @user.tweets.map do |tweet| 
-      TweetPresenter.new(tweet: tweet, current_user: @user)
+    @tweet_presenters = @user.tweets.map do |tweet|
+      TweetPresenter.new(tweet:, current_user: @user)
     end
     render "users/show"
   end
@@ -14,8 +14,8 @@ class ProfileController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params[:password].blank? ? user_params.except(:password) : user_params)
-    @tweet_presenters = @user.tweets.map do |tweet| 
-      TweetPresenter.new(tweet: tweet, current_user: @user)
+    @tweet_presenters = @user.tweets.map do |tweet|
+      TweetPresenter.new(tweet:, current_user: @user)
     end
     respond_to do |format|
       format.html { redirect_to profile_path }
